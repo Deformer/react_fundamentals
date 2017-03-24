@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/index'
 import {Link} from 'react-router';
 import UserDetailWrapper from './UserDetailWrapper';
+import MainContainer from './MainContainer';
 
 const PropTypes = React.PropTypes;
 
@@ -15,7 +16,7 @@ class ConfirmBattle extends React.Component{
     render(){
         return this.props.isLoading
             ? <p>LOADING!</p>
-            : <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+            : <MainContainer>
                 <h1>Confirm Players</h1>
                 <div className="col-sm-8 col-sm-offset-2">
                     <UserDetailWrapper header="Player 1" playerInfo={this.props.playersInfo[0]}/>
@@ -35,7 +36,7 @@ class ConfirmBattle extends React.Component{
                         </Link>
                     </div>
                 </div>
-            </div>
+            </MainContainer>
     }
 }
 
