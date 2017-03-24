@@ -3,6 +3,7 @@ import styles from '../styles/index'
 import {Link} from 'react-router';
 import UserDetailWrapper from './UserDetailWrapper';
 import MainContainer from './MainContainer';
+import Loading from './Loading';
 
 const PropTypes = React.PropTypes;
 
@@ -15,7 +16,7 @@ function puke(obj){
 class ConfirmBattle extends React.Component{
     render(){
         return this.props.isLoading
-            ? <p>LOADING!</p>
+            ? <Loading />
             : <MainContainer>
                 <h1>Confirm Players</h1>
                 <div className="col-sm-8 col-sm-offset-2">

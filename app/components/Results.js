@@ -3,6 +3,7 @@ import UserDetailWrapper from './UserDetailWrapper';
 import styles from '../styles/index';
 import {Link} from 'react-router';
 import MainContainer from './MainContainer';
+import Loading from './Loading';
 
 const PropTypes = React.PropTypes;
 
@@ -28,18 +29,19 @@ function StartOver() {
 function Results(props){
 
     if(props.scores[0] === props.scores[1]){
-        return (
-            <MainContainer>
-                <h1>It's a tie</h1>
-                <StartOver/>
-            </MainContainer>
+        return (props.isLoading
+                ? <Loading/>
+                : <MainContainer>
+                        <h1>It's a tie</h1>
+                        <StartOver/>
+                    </MainContainer>
         )
     }
 
     let winnerIndex = props.scores[0] > props.scores[1] ? 0 : 1;
     let looserIndex = winnerIndex === 0 ? 1: 0;
     return (props.isLoading
-            ? <p>LOADING!</p>
+            ? <Loading/>
             : <MainContainer>
                 <h1>Confirm Players</h1>
                 <div className="col-sm-8 col-sm-offset-2">
